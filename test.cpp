@@ -8,7 +8,7 @@ bool checkhash (const void *ptr, int len, uint64_t seed, uint64_t expected)
 {
     uint64_t hash = xxh64::hash (reinterpret_cast<const char*> (ptr), len, seed);
     if (hash != expected) {
-        printf("Test failed: 0x%I64X!= 0x%I64X",hash,expected);
+        printf("Test failed: 0x%llx!= 0x%llx",hash,expected);
         return false;
     }
     return true;
@@ -24,9 +24,9 @@ int main (int argc, char *argv[])
     
     
     // Print the hash we computed for the string (in the compiler)
-    printf( "Hash of \"%s\" = %I64x\n",aString , std::integral_constant<uint64_t,xxh64::hash(aString)>::value);
-    printf( "Hash of \"%s\" = %I64x\n",bString , std::integral_constant<uint64_t,xxh64::hash(bString)>::value);
-    printf( "Hash of \"%s\" = %I64x\n",cString , std::integral_constant<uint64_t,xxh64::hash(cString)>::value);
+    printf( "Hash of \"%s\" = %llx\n",aString , std::integral_constant<uint64_t,xxh64::hash(aString)>::value);
+    printf( "Hash of \"%s\" = %llx\n",bString , std::integral_constant<uint64_t,xxh64::hash(bString)>::value);
+    printf( "Hash of \"%s\" = %llx\n",cString , std::integral_constant<uint64_t,xxh64::hash(cString)>::value);
 
     
     
